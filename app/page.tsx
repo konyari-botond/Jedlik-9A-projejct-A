@@ -10,18 +10,26 @@ type LinkType = {
 
 const links: LinkType[] = [{ href: "/szamolas", label: "Két autó mozgása egymással szembe" }];
 
+const jobbKartya = {
+  image: "/images/ket_auto.jpg",
+  title: "Számolás oldal",
+  description: "Itt találod a projekt számolási részét, ahol két autó mozgását vizsgáljuk.",
+  href: "/szamolas",
+  buttonLabel: "Megnyitás",
+};
+
 const members = [
   {
     name: "Farkas Réka",
     description:
-      "Győri Jedlik Ányos Technikumban végzem tanulmányaim, jelenleg Typescript oldal fejleszéssel foglalkozok, hobbiaim ",
+      "Győri Jedlik Ányos Technikumban végzem tanulmányaim, jelenleg Typescript oldal fejleszéssel foglalkozok, hobbiaim",
     image: "/images/253047430.jpg",
     github: "https://github.com/farkas-reka",
   },
   {
     name: "Konyári Botond Bátor",
     description:
-      "Győri Jedlik Ányos Technikumban végzem tanulmányaim, jelenleg Typescript oldal fejleszéssel foglalkozok, hobbiaim a programozas es kézilabdázás.",
+      "Győri Jedlik Ányos Technikumban végzem tanulmányaim, jelenleg Typescript oldal fejleszéssel foglalkozok, hobbiaim a programozás és kézilabdázás.",
     image: "/images/253048736.jpg",
     github: "https://github.com/konyari-botond",
   },
@@ -29,7 +37,7 @@ const members = [
 
 export default function KezdoOldal() {
   return (
-    <div className="flex min-h-screen flex-col items-center bg-blue-100 p-5">
+    <div className="flex min-h-screen flex-col bg-blue-100 p-5">
       {/* Fejléc */}
       <div className="m-5 flex flex-col items-center rounded-xl bg-indigo-400 p-8 shadow-lg">
         <h1 className="text-center text-3xl font-bold text-white">
@@ -37,57 +45,71 @@ export default function KezdoOldal() {
         </h1>
       </div>
 
-      {/* Projektek */}
-      <div className="mt-5">
-        <div className="flex h-20 w-125 items-center justify-center rounded-3xl bg-indigo-300 font-semibold shadow-md">
-          <h3 className="p-3 text-3xl">Kicsit rólunk:</h3>
-        </div>
-      </div>
-
-      <div>
-        <ul className="mt-3">
-          {links.map((link, index) => (
-            <li key={index}>
-              <Link
-                className="rounded-full px-3 text-lg text-blue-600 transition hover:bg-gray-100 hover:text-red-500"
-                href={link.href}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Bemutatkozó kártyák */}
-      <div className="mt-10 flex flex-wrap justify-center gap-8">
-        {members.map((member, index) => (
-          <div
-            className="flex w-80 flex-col items-center rounded-3xl bg-white p-6 shadow-xl transition hover:scale-105"
-            key={index}
-          >
-            {/* Profilkép */}
-            <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-indigo-400">
-              <Image alt={member.name} className="object-cover" fill src={member.image} />
-            </div>
-
-            {/* Név */}
-            <h2 className="mt-5 text-2xl font-bold text-gray-800">{member.name}</h2>
-
-            {/* Leírás */}
-            <p className="mt-3 text-center text-gray-600">{member.description}</p>
-
-            {/* GitHub link */}
-            <a
-              className="mt-5 rounded-full bg-indigo-500 px-5 py-2 font-semibold text-white transition hover:bg-indigo-700"
-              href={member.github}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              GitHub profil
-            </a>
+      {/* KÉT OSZLOP */}
+      <div className="flex flex-1 flex-col gap-10 lg:flex-row">
+        {/* BAL OLDAL (eredeti tartalom) */}
+        <div className="flex flex-1 flex-col items-center">
+          {/* Cím */}
+          <div className="mt-5 flex h-20 w-125 items-center justify-center rounded-3xl bg-indigo-300 font-semibold shadow-md">
+            <h3 className="p-3 text-3xl">Kicsit rólunk:</h3>
           </div>
-        ))}
+          {/* Kártyák */}
+          <div className="mt-10 flex flex-wrap justify-center gap-8">
+            {members.map((member, index) => (
+              <div
+                className="flex w-80 flex-col items-center rounded-3xl bg-white p-6 shadow-xl transition hover:scale-105"
+                key={index}
+              >
+                {/* Profilkép */}
+                <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-indigo-400">
+                  <Image alt={member.name} className="object-cover" fill src={member.image} />
+                </div>
+
+                {/* Név */}
+                <h2 className="mt-5 text-2xl font-bold text-gray-800">{member.name}</h2>
+
+                {/* Leírás */}
+                <p className="mt-3 text-center text-gray-600">{member.description}</p>
+
+                {/* GitHub */}
+                <a
+                  className="mt-5 rounded-full bg-indigo-500 px-5 py-2 font-semibold text-white transition hover:bg-indigo-700"
+                  href={member.github}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  GitHub profil
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* JOBB OLDAL (új sablon oldal) */}
+        <div className="flex flex-1 items-start justify-center">
+          <div className="flex w-80 flex-col items-center rounded-3xl bg-white p-6 shadow-xl transition hover:scale-105">
+            {/* Kép */} {/* KEP BUGGOS  ITT HAGYTAM ABBA*/}
+            <div className="h-40 rounded-xl bg-gray-200">
+              <Image alt={jobbKartya.title} className="object-cover" fill src={jobbKartya.image} />
+            </div>
+            {/* Cím */}
+            <h2 className="mt-5 text-xl font-bold text-gray-800">Számolás oldal</h2>
+            {/* Leírás */}
+            <p className="mt-2 text-center text-gray-600">
+              Itt találod a projekt számolási részét, ahol két autó mozgását vizsgáljuk.
+            </p>
+            {/* Link */}
+            {links.map((link, index) => (
+              <Link
+                className="mt-5 rounded-full bg-indigo-500 px-5 py-2 font-semibold text-white transition hover:bg-indigo-700"
+                href="/szamolas"
+                key={index}
+              >
+                Megnyitás
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
