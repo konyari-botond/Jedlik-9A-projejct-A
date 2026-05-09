@@ -22,7 +22,7 @@ const members = [
   {
     name: "Farkas Réka",
     description:
-      "Győri Jedlik Ányos Technikumban végzem tanulmányaim, jelenleg Typescript oldal fejlesztéssel foglalkozok.",
+      "Győri Jedlik Ányos Technikumban végzem tanulmányaim, jelenleg Typescript oldal fejlesztéssel foglalkozok, hobbiaim a programozás, edzés és a zenehallgatás.",
     image: "/images/253047430.jpg",
     github: "https://github.com/farkas-reka",
   },
