@@ -94,7 +94,7 @@ export default function KezdoOldal() {
 
         {/* Jobb oldal */}
         <div className="flex flex-1 items-start justify-center">
-          <div className="flex w-80 flex-col items-center rounded-3xl bg-white p-6 shadow-xl transition hover:scale-105">
+          <div className="flex w-80 flex-col items-center rounded-3xl bg-white p-6 shadow-xl transition hover:scale-105 mt-38 h-103">
             {/* Kép */}
             <div className="fill relative h-40 w-full overflow-hidden rounded-xl bg-gray-200">
               <Image
