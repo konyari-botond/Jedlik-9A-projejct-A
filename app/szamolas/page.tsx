@@ -1,65 +1,69 @@
+import Image from "next/image";
+
 type SearchParams = {
   V1?: string;
   V2?: string;
   s?: string;
-  t1?: string;
-  t2?: string;
+  t?: string;
 };
 
-import Image from "next/image";
-
-export default function KetAuto({ searchParams }: { searchParams: SearchParams }) {
-  const V1 = searchParams.V1 ? Number(searchParams.V1) : 10;
-  const V2 = searchParams.V2 ? Number(searchParams.V2) : 15;
-  const s = searchParams.s ? Number(searchParams.s) : 20;
-
-  const t1 = searchParams.t1 ? Number(searchParams.t1) : s / V1;
-  const t2 = searchParams.t2 ? Number(searchParams.t2) : s / V2;
+export default async function KetAuto({ searchParams }: { searchParams: SearchParams }) {
+  const params: SearchParams = await searchParams;
+  const V1 : number = Number(params.V1) || 10;
+  const V2 : number = Number(params.V2) || 15;
+  const s : number = Number(params.s) || 20;
+  const t : number = Number(params.t) || s / (V1 + V2);
 
   return (
-    <div>
-    <div className="mt-5 flex h-30 w-155 items-center justify-center rounded-3xl bg-indigo-300 font-semibold shadow-md m-auto text-xl">
-      <h1> Üdvözlünk a Project munkánk számolásos oldalán</h1>
-      </div>
-    <div>
-       <Image
-        src="/images/ket_auto.jpg"
-        alt="Autó"
-        width={1200}
-        height={500}
-        className="mt-4 rounded-xl m-auto"
-      />
-    </div>
-    <div className="mt-6 flex flex-col items-center gap-4">
-        <input
-          defaultValue={V1}
+  <div className="flex min-h-screen flex-col items-center justify-center bg-gray-200">
+      <div className="flex w-100 flex-col rounded-lg bg-white p-3 shadow-xl">
+        <form className="flex flex-col gap-4">
+          <p className="text-xl text-center font-semibold">Adatok</p>
+          <div className="m-auto">
+            <label htmlFor="V1">V1 = </label>
+            <input
+              className="input input-primary w-20"
+              defaultValue={V1}
               id="V1"
               name="V1"
               required
-          className="border rounded-lg p-2 w-60"
-        />
-
-        <input
-          type="number"
-          value={V2}
-          className="border rounded-lg p-2 w-60"
-        />
-
-        <input
-          type="number"
-          value={s}
-          className="border rounded-lg p-2 w-60"
-        />
+              type="text"
+            />
+            <span className="ml-1">m/s</span>
+          </div>
+          <div className="m-auto">
+            <label htmlFor="V2">V2 = </label>
+            <input
+              className="input input-primary w-20"
+              defaultValue={V2}
+              id="V2"
+              name="V2"
+              required
+              type="text"
+            />
+             <span className="ml-1">m/s</span>
+          </div>
+          <div className="m-auto">
+            <label htmlFor="s">s = </label>
+            <input
+              className="input input-primary w-20"
+              defaultValue={s}
+              id="s"
+              name="s"
+              required
+              type="text"
+            />
+             <span className="ml-1">m</span>
+          </div>
+          <div className="flex justify-center">
+            <input className="btn btn-primary" type="submit" value="Számol" />
+          </div>
+          <div className="flex justify-around">
+            <p>t = {t.toFixed(3)}s</p>
+          </div>
+        </form>
       </div>
+    </div>
 
-      {/* Eredmények */}
-      <div className="mt-6 text-center text-lg">
-        <p>V1: {V1}</p>
-        <p>V2: {V2}</p>
-        <p>s: {s}</p>
-        <p>t1: {t1.toFixed(2)}</p>
-        <p>t2: {t2.toFixed(2)}</p>
-      </div>
-      </div>
   );
 }
