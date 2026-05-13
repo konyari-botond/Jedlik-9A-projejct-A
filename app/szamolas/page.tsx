@@ -15,7 +15,11 @@ export default async function KetAuto({ searchParams }: { searchParams: SearchPa
   const t : number = Number(params.t) || s / (V1 + V2);
 
   return (
-  <div className="flex min-h-screen flex-col items-center justify-center bg-gray-200">
+    <div className="bg-blue-100">
+    <div className="flex h-20 w-150 items-center justify-center rounded-3xl bg-indigo-300 font-semibold shadow-md m-auto">
+            <h3 className="p-3 text-3xl">Üdvözlünk a számolásos oldalunkon!</h3>
+          </div>
+  <div className="flex mt-10 flex-col items-center justify-center">
       <div className="flex w-100 flex-col rounded-lg bg-white p-3 shadow-xl">
         <form className="flex flex-col gap-4">
           <p className="text-xl text-center font-semibold">Adatok</p>
@@ -64,6 +68,13 @@ export default async function KetAuto({ searchParams }: { searchParams: SearchPa
         </form>
       </div>
     </div>
-
+            <Image
+          alt="Autó"
+          className="m-auto mt-4 rounded-xl"
+          height={500}
+          src="/images/ket_auto-removebg-preview.png"
+          width={1200}
+        />
+</div>
   );
 }
