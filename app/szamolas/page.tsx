@@ -71,9 +71,9 @@ export default async function KetAuto({ searchParams }: { searchParams: SearchPa
       <Image
         alt="Autó"
         className="m-auto mt-4 rounded-xl"
-        height={300}
-        src="/images/névtelen.png"
-        width={1200}
+        height={250}
+        src="/images/unnamed.jpg"
+        width={800}
       />
     </div>
   );
