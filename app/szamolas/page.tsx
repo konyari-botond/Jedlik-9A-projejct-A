@@ -15,8 +15,8 @@ export default async function KetAuto({ searchParams }: { searchParams: SearchPa
   const t: number = Number(params.t) || s / (V1 + V2);
 
   return (
-    <div className="bg-blue-100">
-      <div className="m-auto flex h-20 w-150 items-center justify-center rounded-3xl bg-indigo-300 font-semibold shadow-md">
+    <div className="min-h-screen bg-blue-100">
+      <div className="m-auto flex min-h-20 w-full max-w-4xl items-center justify-center rounded-3xl bg-indigo-300 font-semibold shadow-md">
         <h3 className="p-3 text-3xl">Üdvözlünk a számolásos oldalunkon!</h3>
       </div>
       <div className="mt-10 flex flex-col items-center justify-center">
